@@ -28,7 +28,7 @@ function Header() {
             />
           </div>
         </Link>
-        {/* <NavBar /> */}
+        <NavBar />
       </div>
 
       <div className={cx("header-right")}>

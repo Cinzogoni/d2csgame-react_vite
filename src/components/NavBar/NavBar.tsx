@@ -3,57 +3,19 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 import { Fragment, useState } from "react";
-import { useTranslations } from "next-intl";
-import { Link, isNavigate } from "src/i18n/routing";
+import { useLangSwitcher } from "../../provider/LangSwitcherProvider";
+import { Link } from "react-router-dom";
+import routeURLs from "../../routes/routes";
 
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
-const handleMenuLink = (classify: string, productType: string) => {
-  const paths: { [key: string]: string } = {
-    SET: "/set-categories/[theClassify]",
-    ITEM: "/item-categories/[theClassify]",
-    STEAM_WALLET: "/steam/[theClassify]",
-    STEAM_POINT: "/steam/[theClassify]",
-    WEATHER_EFFECTS: "/others/[theClassify]",
-    TERRAIN: "/others/[theClassify]",
-    MUSIC_PACK: "/others/[theClassify]",
-    COURIER: "/others/[theClassify]",
-  };
-
-  const dynamicPath = paths[productType] || "";
-
-  if (dynamicPath) {
-    return isNavigate(dynamicPath, {
-      theClassify: classify,
-    });
-  }
-};
+const handleMenuLink = (classify: string, productType: string) => {};
 
 const handleSubMenuLink = (
   classify: string,
   isClass: string,
   productType: string
-) => {
-  const paths: { [key: string]: string } = {
-    SET: "/set-categories/[theClassify]/[theClass]",
-    ITEM: "/item-categories/[theClassify]/[theClass]",
-    STEAM_WALLET: "/steam/[theClassify]/[theClass]",
-    STEAM_POINT: "/steam/[theClassify]/[theClass]",
-    WEATHER_EFFECTS: "/others/[theClassify]/[theClass]",
-    TERRAIN: "/others/[theClassify]/[theClass]",
-    MUSIC_PACK: "/others/[theClassify]/[theClass]",
-    COURIER: "/others/[theClassify]/[theClass]",
-  };
-
-  const dynamicPath = paths[productType] || "";
-
-  if (dynamicPath) {
-    return isNavigate(dynamicPath, {
-      theClassify: classify,
-      theClass: isClass,
-    });
-  }
-};
+) => {};
 
 type SubMenuType = {
   id: number;
@@ -78,16 +40,16 @@ type NavbarType = {
 };
 
 function NavBar() {
-  const t = useTranslations("Heros");
+  const { t } = useLangSwitcher();
   const [hoveredNavId, setHoveredNavId] = useState<number | null>(null);
   const [hoveredSubMenuId, setHoveredSubMenuId] = useState<number | null>(null);
 
   const navbar: NavbarType[] = [
-    { id: 1, title: t("heros"), link: "/heros", menu: null },
+    { id: 1, title: t("Heros.heros"), link: routeURLs.heros, menu: null },
     {
       id: 2,
-      title: t("sets"),
-      link: "/set-categories",
+      title: t("Heros.sets"),
+      link: routeURLs.set,
       menu: [
         {
           id: 1,
@@ -146,8 +108,8 @@ function NavBar() {
     },
     {
       id: 3,
-      title: t("items"),
-      link: "/item-categories",
+      title: t("Heros.items"),
+      link: routeURLs.item,
       menu: [
         {
           id: 1,
@@ -211,8 +173,8 @@ function NavBar() {
     },
     {
       id: 4,
-      title: t("steam"),
-      link: "/steam",
+      title: t("Heros.steam"),
+      link: routeURLs.steam,
       menu: [
         {
           id: 1,
@@ -232,8 +194,8 @@ function NavBar() {
     },
     {
       id: 5,
-      title: t("others"),
-      link: "/others",
+      title: t("Heros.others"),
+      link: routeURLs.others,
       menu: [
         {
           id: 1,
@@ -277,11 +239,7 @@ function NavBar() {
             onMouseEnter={() => setHoveredNavId(nav.id)}
             onMouseLeave={() => setHoveredNavId(null)}
           >
-            <Link
-              //@ts-expect-error: Link Map OK
-              href={nav.link}
-              target="_blank"
-            >
+            <Link to={nav.link} target="_blank">
               <div className={cx("nav")}>
                 <h3 className={cx("title")}>{nav.title}</h3>
               </div>
@@ -295,8 +253,7 @@ function NavBar() {
                     {nav.menu.map((menu) => (
                       <Fragment key={menu.id}>
                         <Link
-                          //@ts-expect-error: Link Map OK
-                          href={menu.link(menu.title, menu.productType)}
+                          to={menu.link(menu.title, menu.productType)}
                           className={cx("link")}
                           onMouseEnter={() => setHoveredSubMenuId(menu.id)}
                           onMouseLeave={() => setHoveredSubMenuId(null)}
@@ -321,8 +278,7 @@ function NavBar() {
                                   {menu.subMenu?.map((subMenu) => {
                                     return (
                                       <Link
-                                        //@ts-expect-error: Link Map OK
-                                        href={subMenu.link(
+                                        to={subMenu.link(
                                           menu.title,
                                           subMenu.title,
                                           subMenu.productType
