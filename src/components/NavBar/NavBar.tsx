@@ -9,13 +9,53 @@ import routeURLs from "../../routes/routes";
 
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
-const handleMenuLink = (classify: string, productType: string) => {};
+const handleMenuLink = (classify: string, productType: string) => {
+  if (productType === "SET") {
+    return `/set-categories/${classify}`;
+  } else if (productType === "ITEM") {
+    return `/item-categories/${classify}`;
+  } else if (productType === "STEAM_WALLET") {
+    return `/steam/${classify}`;
+  } else if (productType === "STEAM_POINT") {
+    return `/steam/${classify}`;
+  } else if (productType === "WEATHER_EFFECTS") {
+    return `/others/${classify}`;
+  } else if (productType === "TERRAIN") {
+    return `/others/${classify}`;
+  } else if (productType === "MUSIC_PACK") {
+    return `/others/${classify}`;
+  } else if (productType === "COURIER") {
+    return `/others/${classify}`;
+  } else {
+    return "/";
+  }
+};
 
 const handleSubMenuLink = (
   classify: string,
   isClass: string,
   productType: string
-) => {};
+) => {
+  if (productType === "SET") {
+    return `/set-categories/${classify}/${isClass}`;
+  } else if (productType === "ITEM") {
+    return `/item-categories/${classify}/${isClass}`;
+  } else if (productType === "STEAM_WALLET") {
+    return `/steam/${classify}/${isClass}`;
+  } else if (productType === "STEAM_POINT") {
+    return `/steam/${classify}/${isClass}`;
+  } else if (productType === "WEATHER_EFFECT") {
+    return `/others/${classify}/${isClass}`;
+  } else if (productType === "TERRAIN") {
+    return `/others/${classify}/${isClass}`;
+  } else if (productType === "MUSIC_PACK") {
+    return `/others/${classify}/${isClass}`;
+  } else if (productType === "COURIER") {
+    return `/others/${classify}/${isClass}`;
+  } else {
+    return "/";
+  }
+};
 
 type SubMenuType = {
   id: number;
@@ -199,28 +239,28 @@ function NavBar() {
       menu: [
         {
           id: 1,
-          title: t("weatherEffects"),
+          title: t("Heros.weatherEffects"),
           productType: "WEATHER_EFFECTS",
           link: handleMenuLink,
           subMenu: null,
         },
         {
           id: 2,
-          title: t("terrain"),
+          title: t("Heros.terrain"),
           productType: "TERRAIN",
           link: handleMenuLink,
           subMenu: null,
         },
         {
           id: 3,
-          title: t("musicPack"),
+          title: t("Heros.musicPack"),
           productType: "MUSIC_PACK",
           link: handleMenuLink,
           subMenu: null,
         },
         {
           id: 4,
-          title: t("courier"),
+          title: t("Heros.courier"),
           productType: "COURIER",
           link: handleMenuLink,
           subMenu: null,
@@ -253,7 +293,8 @@ function NavBar() {
                     {nav.menu.map((menu) => (
                       <Fragment key={menu.id}>
                         <Link
-                          to={menu.link(menu.title, menu.productType)}
+                          to={menu.link(menu.title, menu.productType) ?? "/"}
+                          target="_blank"
                           className={cx("link")}
                           onMouseEnter={() => setHoveredSubMenuId(menu.id)}
                           onMouseLeave={() => setHoveredSubMenuId(null)}
@@ -278,11 +319,14 @@ function NavBar() {
                                   {menu.subMenu?.map((subMenu) => {
                                     return (
                                       <Link
-                                        to={subMenu.link(
-                                          menu.title,
-                                          subMenu.title,
-                                          subMenu.productType
-                                        )}
+                                        to={
+                                          subMenu.link(
+                                            menu.title,
+                                            subMenu.title,
+                                            subMenu.productType
+                                          ) ?? "/"
+                                        }
+                                        target="_blank"
                                         key={subMenu.id}
                                         className={cx("sub-link")}
                                         onMouseEnter={() =>

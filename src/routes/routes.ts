@@ -1,6 +1,7 @@
 const routeURLs = {
   home: "/",
-  //Header
+  //Header - Navbar
+  heros: "/heros",
   set: "/set-categories",
   setClassify: "/set-categories/:theClassify",
   setClass: "/set-categories/:theClassify/:theClass",
@@ -8,27 +9,21 @@ const routeURLs = {
   itemClassify: "/item-categories/:theClassify",
   itemClass: "/item-categories/:theClassify/:theClass",
   steam: "/steam",
-  steamWalletClassify: "/steam/:theClassify",
-  steamWalletClass: "/steam/:theClassify/:theClass",
-  steamPointClassify: "/steam/:theClassify",
-  steamPointClass: "/steam/:theClassify/:theClass",
-  weatherEffectClassify: "/others/:theClassify",
-  weatherEffectClass: "/others/:theClassify/:theClass",
-  terrainClassify: "/others/:theClassify",
-  terrainClass: "/others/:theClassify/:theClass",
-  musicPackClassify: "/others/:theClassify",
-  musicPackClass: "/others/:theClassify/:theClass",
-  courierClassify: "/others/:theClassify",
+  steamClassify: "/steam/:theClassify",
+  steamClass: "/steam/:theClassify/:theClass",
   courierClass: "/others/:theClassify/:theClass",
   others: "/others",
+  othersClassify: "/others/:theClassify",
+  othersClass: "/others/:theClassify/:theClass",
+  //Header - Actions
+
   //Footer
   policy: "/policy",
   guide: "/guide",
   support: "/support",
   qna: "/qna",
   contact: "/contact",
-  //Characters
-  heros: "/heros",
+  //Products
 };
 
 export default routeURLs;
