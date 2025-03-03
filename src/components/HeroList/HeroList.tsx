@@ -22,8 +22,6 @@ function HeroList() {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const debouncedSearchInput = useDebounce(searchInput, 250);
 
-  console.log("dataCharacters:", dataCharacters);
-
   //lam_dev thay apiFakeCharacters === dataCharacters
   const heros = Array.from(
     new Map(dataCharacters.map((hero) => [hero.name, hero])).values()

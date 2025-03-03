@@ -5,9 +5,9 @@ const cx = classNames.bind(styles);
 import { Fragment } from "react";
 
 import NavBar from "../../components/NavBar/NavBar";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import HeaderActions from "../HeaderActions/HeaderActions";
-import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
+// import SearchBar from "../../components/SearchBar/SearchBar";
+// import HeaderActions from "../HeaderActions/HeaderActions";
+// import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
 
 import LanguagesSwitcher from "../../components/LanguagesSwitcher/LanguagesSwitcher";
 

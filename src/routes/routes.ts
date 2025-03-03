@@ -2,6 +2,7 @@ const routeURLs = {
   home: "/",
   //Header - Navbar
   heros: "/heros",
+  heroName: "/heros/:heroName",
   set: "/set-categories",
   setClassify: "/set-categories/:theClassify",
   setClass: "/set-categories/:theClassify/:theClass",
@@ -16,7 +17,7 @@ const routeURLs = {
   othersClassify: "/others/:theClassify",
   othersClass: "/others/:theClassify/:theClass",
   //Header - Actions
-
+  shoppingCart: "/shopping-cart",
   //Footer
   policy: "/policy",
   guide: "/guide",
@@ -24,6 +25,9 @@ const routeURLs = {
   qna: "/qna",
   contact: "/contact",
   //Products
+  buying: "/buying",
+  selling: "/selling",
+  payment: "/payment",
 };
 
 export default routeURLs;

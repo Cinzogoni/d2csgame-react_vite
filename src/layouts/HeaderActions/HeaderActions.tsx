@@ -5,16 +5,16 @@ import styles from "./HeaderActions.module.scss";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
-import { useTranslations } from "next-intl";
+import { useLangSwitcher } from "../../provider/LangSwitcherProvider";
 
 import { useState } from "react";
-import { Link, isNavigate } from "src/i18n/routing";
-import { RootState } from "src/app/redux-toolkit/store";
+import { Link } from "react-router-dom";
+import { RootState } from "../../redux-toolkit/store";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "src/app/redux-toolkit/apiUsersResources";
+import { logout } from "../../redux-toolkit/apiUsersResources";
 
 function HeaderActions() {
-  const tPrimary = useTranslations("Primary");
+  const { t } = useLangSwitcher();
   const [infoShow, setInfoShow] = useState<boolean>(false);
   const dispatch = useDispatch();
   const currentUser = useSelector(
@@ -27,7 +27,7 @@ function HeaderActions() {
       style={{ backgroundColor: currentUser ? "#2c2c35" : "transparent" }}
     >
       <Link
-        href={
+        to={
           currentUser?.userName
             ? `/user/${currentUser.userName}`
             : "/authentication"
@@ -54,12 +54,10 @@ function HeaderActions() {
         <div className={cx("info-box")}>
           <div className={cx("info")} onMouseLeave={() => setInfoShow(false)}>
             <Link
-              href={isNavigate("/user/[userName]", {
-                userName: currentUser?.userName,
-              })}
+              to={`/user/${currentUser?.userName}`}
               className={cx("info-manager")}
             >
-              <h4 className={cx("info-title")}>{tPrimary("accountInfo")}</h4>
+              <h4 className={cx("info-title")}>{t("Primary.accountInfo")}</h4>
               <ManageAccountsIcon className={cx("account-manager")} />
             </Link>
 
@@ -67,7 +65,7 @@ function HeaderActions() {
               className={cx("info-manager")}
               onClick={() => dispatch(logout())}
             >
-              <h4 className={cx("info-title")}>{tPrimary("logout")}</h4>
+              <h4 className={cx("info-title")}>{t("Primary.logout")}</h4>
               <LogoutIcon className={cx("logout")} />
             </div>
           </div>

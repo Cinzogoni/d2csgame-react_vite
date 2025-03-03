@@ -4,7 +4,7 @@ import {
   apiSearchResult,
   apiCharacters,
   apiProductCategories,
-  apiUsers,
+  // apiUsers,
 } from "../services/ProductService";
 
 import { ProductCategories, CharactersType } from "../types/dataType";

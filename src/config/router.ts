@@ -25,6 +25,14 @@ import ItemTheClassPage from "../pages/ItemTheClassPage";
 import SteamTheClassPage from "../pages/SteamTheClassPage";
 import OthersTheClassPage from "../pages/OthersTheClassPage";
 
+import ShoppingCartPage from "../pages/ShoppingCartPage";
+
+import BuyingPage from "../pages/BuyingPage";
+import SellingPage from "../pages/SellingPage";
+import PaymentPage from "../pages/PaymentPage";
+
+import CharactersName from "../pages/CharactersName";
+
 const routeLinks = [
   //Home
   { path: routeURLs.home, component: HomePage, layout: MainLayout },
@@ -75,6 +83,11 @@ const routeLinks = [
     layout: MainLayout,
   },
   //Header - Actions
+  {
+    path: routeURLs.shoppingCart,
+    component: ShoppingCartPage,
+    layout: MainLayout,
+  },
 
   //Footer
   { path: routeURLs.policy, component: PolicyPage, layout: MainLayout },
@@ -83,6 +96,11 @@ const routeLinks = [
   { path: routeURLs.qna, component: QnAPage, layout: MainLayout },
   { path: routeURLs.contact, component: ContactPage, layout: MainLayout },
   //Products
+  { path: routeURLs.buying, component: BuyingPage, layout: MainLayout },
+  { path: routeURLs.selling, component: SellingPage, layout: MainLayout },
+  { path: routeURLs.payment, component: PaymentPage, layout: MainLayout },
+
+  { path: routeURLs.heroName, component: CharactersName, layout: MainLayout },
 ];
 
 export default routeLinks;

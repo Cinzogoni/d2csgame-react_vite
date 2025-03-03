@@ -3,17 +3,17 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
-import useDebounce from "src/app/hooks/useDebounce";
+import { useLangSwitcher } from "../../provider/LangSwitcherProvider";
+import useDebounce from "../../hooks/useDebounce";
 import Select from "react-select";
-import { Link, isNavigate } from "src/i18n/routing";
+import { Link } from "react-router-dom";
 
-import apiSearchResult from "src/api/fakeApi/apiSearchResult";
+import apiSearchResult from "../../api/fakeApi/apiSearchResult";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SearchBar() {
-  const t = useTranslations("Primary");
+  const { t } = useLangSwitcher();
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [isClient, setIsClient] = useState<boolean>(false);
@@ -37,44 +37,14 @@ function SearchBar() {
     );
   };
 
-  const handleProductLink = (
-    characterName: string,
-    name: string,
-    productType: string
-  ) => {
-    const paths: { [key: string]: string } = {
-      SET: "/heros/[heroName]/sets/[name]",
-      ITEM: "/heros/[heroName]/items/[name]",
-      ARCANA: "/heros/[heroName]/arcana/[name]",
-      TAUNT: "/heros/[heroName]/taunt/[name]",
-      STEAM_WALLET: "/steam/wallet/[name]",
-      STEAM_POINT: "/steam/point/[name]",
-      WEATHER_EFFECTS: "/others/weather-effects/[name]",
-      TERRAIN: "/others/terrain/[name]",
-      MUSIC_PACK: "/others/music-pack/[name]",
-      COURIER: "/others/courier/[name]",
-    };
-
-    const dynamicPath = paths[productType] || "";
-
-    if (dynamicPath) {
-      return isNavigate(dynamicPath, {
-        heroName: characterName,
-        name: name,
-      });
-    }
-  };
+  // const handleProductLink = (
+  //   characterName: string,
+  //   name: string,
+  //   productType: string
+  // ) => {};
 
   const customFormatOptionLabel = (products: any) => (
-    <Link
-      //@ts-expect-error: Checked Used OK
-      href={handleProductLink(
-        products.character.name,
-        products.name,
-        products.productType
-      )}
-      target="_blank"
-    >
+    <Link to="/" target="_blank">
       <div className={cx("products")}>
         {/* eslint-disable @next/next/no-img-element */}
         <img
@@ -108,7 +78,7 @@ function SearchBar() {
     <div className={cx("wrapper")}>
       <Select
         options={result}
-        placeholder={t("search")}
+        placeholder={t("Primary.search")}
         formatOptionLabel={customFormatOptionLabel}
         filterOption={(option) => customFilter(option, debouncedSearchInput)}
         onInputChange={(inputValue) => setSearchInput(inputValue)}
