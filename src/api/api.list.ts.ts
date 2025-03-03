@@ -19,7 +19,6 @@ export const useFetchApiProductResources = () => {
     (state: RootState) => state.apiResources.isApiSearchResult
   );
 
-  //DATA IS FIXING
   const dataCharacters = useSelector(
     (state: RootState) => state.apiResources.isApiCharacters
   );

@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 import { useFetchApiProductResources } from "../../api/api.list.ts";
 
 function HeroList() {
-  //DATA IS FIXING
   const { dataCharacters } = useFetchApiProductResources();
   const { t } = useLangSwitcher();
   const [isClient, setIsClient] = useState<boolean>(false);
