@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect, useCallback } from "react";
 
 type SlideDirection = "prev" | "next" | null;

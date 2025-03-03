@@ -1,5 +1,10 @@
 import axios from "axios";
-import { ProductCategories, User } from "../types/dataType";
+import {
+  ProductCategories,
+  User,
+  CharactersResponse,
+  CharactersType,
+} from "../types/dataType";
 
 // lam_dev thay api url tất cả đây
 const REST_API_PRODUCTS_URL = `http://localhost:8080/api/products`;
@@ -18,11 +23,9 @@ const apiSearchResult = async (): Promise<ProductCategories[]> => {
 
 //DATA IS FIXING
 const REST_API_CHARACTERS_URL = `http://103.28.33.98:8080/api/v1/character`;
-const apiCharacters = async (): Promise<ProductCategories[]> => {
-  const response = await axios.get<ProductCategories[]>(
-    REST_API_CHARACTERS_URL
-  );
-  const data = response.data;
+const apiCharacters = async (): Promise<CharactersType[]> => {
+  const response = await axios.get<CharactersResponse>(REST_API_CHARACTERS_URL);
+  const data = response.data.data;
   return data;
 };
 

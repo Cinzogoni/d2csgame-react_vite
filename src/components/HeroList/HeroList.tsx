@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "../HeroList/HeroList.module.scss";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
@@ -11,39 +9,36 @@ import Select from "react-select";
 import GridSystem from "../GridSystem/GridSystem";
 import { Link } from "react-router-dom";
 
-import apiFakeCharacters from "../../api/fakeApi/apiFakeCharacters";
+// import apiFakeCharacters from "../../api/fakeApi/apiFakeCharacters";
 
-// import { useFetchApiProductResources } from "../../api/api.list.ts";
+import { useFetchApiProductResources } from "../../api/api.list.ts";
 
 function HeroList() {
   //DATA IS FIXING
-  // const { dataCharacters } = useFetchApiProductResources();
+  const { dataCharacters } = useFetchApiProductResources();
   const { t } = useLangSwitcher();
   const [isClient, setIsClient] = useState<boolean>(false);
   const [selectedHero, setSelectedHero] = useState<any | null>(null);
   const [searchInput, setSearchInput] = useState<string>("");
   const [isFocused, setIsFocused] = useState<boolean>(false);
-
   const debouncedSearchInput = useDebounce(searchInput, 250);
+
+  console.log("dataCharacters:", dataCharacters);
 
   //lam_dev thay apiFakeCharacters === dataCharacters
   const heros = Array.from(
-    new Map(
-      apiFakeCharacters.heros.map((hero) => [hero.character.name, hero])
-    ).values()
+    new Map(dataCharacters.map((hero) => [hero.name, hero])).values()
   );
 
   const options = heros.map((hero) => ({
-    value: hero.character.name,
-    label: hero.character.name,
+    value: hero.name,
+    label: hero.name,
   }));
 
   const filteredHeros = selectedHero
-    ? heros.filter((hero) => hero.character.name === selectedHero.value)
+    ? heros.filter((hero) => hero.name === selectedHero.value)
     : heros.filter((hero) =>
-        hero.character.name
-          .toLowerCase()
-          .includes(debouncedSearchInput.toLowerCase())
+        hero.name.toLowerCase().includes(debouncedSearchInput.toLowerCase())
       );
 
   useEffect(() => {
@@ -124,7 +119,7 @@ function HeroList() {
               colMi={cx("mi-12")}
             >
               <Link
-                to={handleProductLink(hero.character.name)}
+                to={handleProductLink(hero.name)}
                 target="_blank"
                 style={{
                   display: "flex",
@@ -136,13 +131,13 @@ function HeroList() {
                   <div className={cx("img-box")}>
                     {/* eslint-disable @next/next/no-img-element */}
                     <img
-                      src={hero.character.avatar}
-                      alt={hero.character.name}
+                      src={hero.filePath}
+                      alt={hero.name}
                       className={cx("img")}
                     />
                   </div>
 
-                  <h3 className={cx("hero-name")}>- {hero.character.name} -</h3>
+                  <h3 className={cx("hero-name")}>- {hero.name} -</h3>
                 </div>
               </Link>
             </GridSystem>

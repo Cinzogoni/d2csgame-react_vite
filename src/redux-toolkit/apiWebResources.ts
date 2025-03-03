@@ -7,7 +7,7 @@ import {
   apiUsers,
 } from "../services/ProductService";
 
-import { ProductCategories } from "../types/dataType";
+import { ProductCategories, CharactersType } from "../types/dataType";
 
 export const fetchHomePageResources = createAsyncThunk(
   "api/fetchHomePageResources",
@@ -32,7 +32,7 @@ export const fetchProductCategories = createAsyncThunk(
 interface ApiState {
   isApiHomePageResources: ProductCategories[];
   isApiSearchResult: ProductCategories[];
-  isApiCharacters: ProductCategories[];
+  isApiCharacters: CharactersType[];
   isApiProductCategories: ProductCategories[];
   apiLoading: boolean;
   apiError: string | null;

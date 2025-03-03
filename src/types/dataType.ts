@@ -39,3 +39,16 @@ export type User = {
   phoneNumber: string;
   password: string;
 };
+
+//Heros Page
+export type CharactersType = {
+  name: string;
+  id: number;
+  attribute: string;
+  filePath: string;
+};
+export type CharactersResponse = {
+  status: number;
+  message: string;
+  data: CharactersType[];
+};
