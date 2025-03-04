@@ -8,10 +8,12 @@ const cx = classNames.bind(styles);
 import { useLangSwitcher } from "../../provider/LangSwitcherProvider";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { RootState } from "../../redux-toolkit/store";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux-toolkit/apiUsersResources";
+
+import { Link } from "react-router-dom";
+import routeURLs from "../../routes/routes";
 
 function HeaderActions() {
   const { t } = useLangSwitcher();
@@ -30,7 +32,7 @@ function HeaderActions() {
         to={
           currentUser?.userName
             ? `/user/${currentUser.userName}`
-            : "/authentication"
+            : routeURLs.authentication
         }
         style={{ marginRight: "12px" }}
       >

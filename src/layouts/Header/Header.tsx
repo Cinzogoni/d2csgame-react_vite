@@ -5,9 +5,9 @@ const cx = classNames.bind(styles);
 import { Fragment } from "react";
 
 import NavBar from "../../components/NavBar/NavBar";
-// import SearchBar from "../../components/SearchBar/SearchBar";
-// import HeaderActions from "../HeaderActions/HeaderActions";
-// import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
+import HeaderActions from "../HeaderActions/HeaderActions";
+import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 import LanguagesSwitcher from "../../components/LanguagesSwitcher/LanguagesSwitcher";
 
@@ -20,7 +20,6 @@ function Header() {
       <div className={cx("header-left")}>
         <Link to={routeURLs.home}>
           <div className={cx("logo")}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className={cx("img")}
               src="/assets/img/d2csgame-logo.png"
@@ -32,9 +31,9 @@ function Header() {
       </div>
 
       <div className={cx("header-right")}>
-        {/* <SearchBar /> */}
-        {/* <ShoppingCart /> */}
-        {/* <HeaderActions /> */}
+        <SearchBar />
+        <ShoppingCart />
+        <HeaderActions />
         <LanguagesSwitcher />
       </div>
     </Fragment>

@@ -16,7 +16,6 @@ function SearchBar() {
   const { t } = useLangSwitcher();
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
-  const [isClient, setIsClient] = useState<boolean>(false);
   const debouncedSearchInput = useDebounce(searchInput, 250);
   // const { dataSearchResult } = useFetchApiProductResources();
 
@@ -64,14 +63,6 @@ function SearchBar() {
       </div>
     </Link>
   );
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return null;
-  }
 
   return (
     <div className={cx("wrapper")}>

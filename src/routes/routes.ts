@@ -1,5 +1,8 @@
 const routeURLs = {
   home: "/",
+  //User
+  authentication: "/authentication",
+  user: "/user/:userName",
   //Header - Navbar
   heros: "/heros",
   heroName: "/heros/:heroName",

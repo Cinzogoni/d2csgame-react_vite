@@ -3,6 +3,9 @@ import routeURLs from "../routes/routes";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 
+import AuthenticationPage from "../pages/AuthenticationPage";
+import UserPage from "../pages/UserPage";
+
 import PolicyPage from "../pages/PolicyPage";
 import GuidesPage from "../pages/GuidesPage";
 import SupportPage from "../pages/SupportPage";
@@ -36,6 +39,17 @@ import CharactersName from "../pages/CharactersName";
 const routeLinks = [
   //Home
   { path: routeURLs.home, component: HomePage, layout: MainLayout },
+  //User
+  {
+    path: routeURLs.authentication,
+    component: AuthenticationPage,
+    layout: MainLayout,
+  },
+  {
+    path: routeURLs.user,
+    component: UserPage,
+    layout: MainLayout,
+  },
   //Header - Navbar
   { path: routeURLs.heros, component: CharactersPage, layout: MainLayout },
   { path: routeURLs.set, component: SetCategoriesPage, layout: MainLayout },
