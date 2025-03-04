@@ -2,7 +2,7 @@ import styles from "./SearchBar.module.scss";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLangSwitcher } from "../../provider/LangSwitcherProvider";
 import useDebounce from "../../hooks/useDebounce";
 import Select from "react-select";
