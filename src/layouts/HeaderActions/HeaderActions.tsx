@@ -32,7 +32,6 @@ function HeaderActions() {
             ? `/user/${currentUser.userName}`
             : "/authentication"
         }
-        target="_blank"
         style={{ marginRight: "12px" }}
       >
         <div className={cx("account")} onMouseOver={() => setInfoShow(true)}>

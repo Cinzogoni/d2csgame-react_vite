@@ -30,7 +30,6 @@ function LanguagesSwitcher() {
     <div className={cx("wrapper")} onClick={() => setIsOpen(true)}>
       <div className={cx("arrow-down")} />
       <div className={cx("selected-flag")}>
-        {/* eslint-disable @next/next/no-img-element */}
         <img className={cx("flag-img")} src={flag} alt={currentLanguage} />
       </div>
       {isOpen && (
@@ -41,7 +40,6 @@ function LanguagesSwitcher() {
               className={cx("option")}
               onClick={(e) => handleLanguageChange(e, code)}
             >
-              {/* eslint-disable @next/next/no-img-element */}
               <img
                 className={cx("opt-img")}
                 src={flagMapping[code]}

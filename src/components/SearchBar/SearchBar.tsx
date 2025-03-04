@@ -44,9 +44,8 @@ function SearchBar() {
   // ) => {};
 
   const customFormatOptionLabel = (products: any) => (
-    <Link to="/" target="_blank">
+    <Link to="/">
       <div className={cx("products")}>
-        {/* eslint-disable @next/next/no-img-element */}
         <img
           src={products.images[0].filePath}
           alt={products.name}

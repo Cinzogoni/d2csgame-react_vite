@@ -279,7 +279,7 @@ function NavBar() {
             onMouseEnter={() => setHoveredNavId(nav.id)}
             onMouseLeave={() => setHoveredNavId(null)}
           >
-            <Link to={nav.link} target="_blank">
+            <Link to={nav.link}>
               <div className={cx("nav")}>
                 <h3 className={cx("title")}>{nav.title}</h3>
               </div>
@@ -294,7 +294,6 @@ function NavBar() {
                       <Fragment key={menu.id}>
                         <Link
                           to={menu.link(menu.title, menu.productType) ?? "/"}
-                          target="_blank"
                           className={cx("link")}
                           onMouseEnter={() => setHoveredSubMenuId(menu.id)}
                           onMouseLeave={() => setHoveredSubMenuId(null)}
@@ -326,7 +325,6 @@ function NavBar() {
                                             subMenu.productType
                                           ) ?? "/"
                                         }
-                                        target="_blank"
                                         key={subMenu.id}
                                         className={cx("sub-link")}
                                         onMouseEnter={() =>

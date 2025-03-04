@@ -120,9 +120,8 @@ function Banner() {
                     colMo={cx("mo-12")}
                     colMi={cx("mi-12")}
                   >
-                    <Link to={event.link} target="_blank">
+                    <Link to={event.link}>
                       <div className={cx("events-img")}>
-                        {/* eslint-disable @next/next/no-img-element */}
                         <img
                           className={cx("events-banner")}
                           src={event.imgUrl}
@@ -172,7 +171,6 @@ function Banner() {
           {services.map((service, index) => {
             return (
               <div key={index} className={cx("item")}>
-                {/* eslint-disable @next/next/no-img-element */}
                 <img
                   className={cx("service-img")}
                   src={service.imgUrl}
