@@ -3,7 +3,7 @@ const apiFakeUsers = {
     {
       userName: "user001",
       email: "user001@gmail.com",
-      phoneNumber: "0386479893",
+      phoneNumber: "0386479892",
       password: "User@001",
     },
   ],

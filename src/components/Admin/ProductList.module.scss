@@ -1,0 +1,67 @@
+@use "@styles/variable.scss" as *;
+
+.frame {
+  width: 90%;
+  height: 90%;
+  background-color: #647381;
+  @include cornerStyles(0, $frame-corner-radius, $frame-corner-radius, 0);
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+
+  .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      font-size: 1.8rem;
+    }
+
+    th {
+      background-color: #333;
+      color: white;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f9f9f9;
+    }
+
+    th:first-child {
+      border-top-left-radius: $frame-corner-radius;
+    }
+
+    th:last-child {
+      border-top-right-radius: $frame-corner-radius;
+    }
+
+    tr:last-child td:first-child {
+      border-bottom-left-radius: $frame-corner-radius;
+    }
+
+    tr:last-child td:last-child {
+      border-bottom-right-radius: $frame-corner-radius;
+    }
+  }
+
+  .pagination {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage";
 
 import AuthenticationPage from "../pages/AuthenticationPage";
 import UserPage from "../pages/UserPage";
+import AdminPage from "../pages/AdminPage";
 
 import PolicyPage from "../pages/PolicyPage";
 import GuidesPage from "../pages/GuidesPage";
@@ -49,6 +50,11 @@ const routeLinks = [
     path: routeURLs.user,
     component: UserPage,
     layout: MainLayout,
+  },
+  {
+    path: routeURLs.admin,
+    component: AdminPage,
+    layout: null,
   },
   //Header - Navbar
   { path: routeURLs.heros, component: CharactersPage, layout: MainLayout },

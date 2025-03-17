@@ -3,6 +3,7 @@ const routeURLs = {
   //User
   authentication: "/authentication",
   user: "/user/:userName",
+  admin: "/admin/:adminName",
   //Header - Navbar
   heros: "/heros",
   heroName: "/heros/:heroName",

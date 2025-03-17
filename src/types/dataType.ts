@@ -40,6 +40,14 @@ export type User = {
   password: string;
 };
 
+export type Admin = {
+  adminName: string;
+  role: string;
+  email: string;
+  phoneNumber: string;
+  password: string;
+};
+
 //Heros Page
 export type CharactersType = {
   name: string;

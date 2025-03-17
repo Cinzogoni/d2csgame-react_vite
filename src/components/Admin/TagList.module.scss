@@ -1,0 +1,12 @@
+@use "@styles/variable.scss" as *;
+
+.frame {
+  width: 90%;
+  height: 90%;
+  background-color: #647381;
+  @include cornerStyles(0, $frame-corner-radius, $frame-corner-radius, 0);
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}

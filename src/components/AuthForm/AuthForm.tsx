@@ -10,15 +10,18 @@ import { useState } from "react";
 import { useLangSwitcher } from "../../provider/LangSwitcherProvider";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-import apiFakeUsers from "../../api/fakeApi/apiFakeUser";
 import { loginSuccess } from "../../redux-toolkit/apiUsersResources";
+import { loginSuccessAdmin } from "../../redux-toolkit/apiAdminResources";
 import { useDispatch } from "react-redux";
 
-// import { apiUsers } from "src/app/services/ProductService";
+// import { apiUsers, apiAdmins } from "../../services/ProductService";
+
+import apiFakeUsers from "../../api/fakeApi/apiFakeUser";
+import apiFakeAdmin from "../../api/fakeApi/apiFakeAdmin";
 
 type AuthFormType = {
-  formType: "login" | "signup";
-  setFormType: (type: "login" | "signup") => void;
+  formType: "login" | "signup" | "loginAdmin";
+  setFormType: (type: "login" | "signup" | "loginAdmin") => void;
 };
 
 function AuthForm({ formType, setFormType }: AuthFormType) {
@@ -37,11 +40,10 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
   const isLoginEmail = apiFakeUsers.USER_001.map((e) => e.email);
   const isLoginPassword = apiFakeUsers.USER_001.map((e) => e.password);
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleSwitchForm = (formType: "login" | "signup") => {
+  const handleSwitchForm = (formType: "login" | "signup" | "loginAdmin") => {
     setFormType(formType);
   };
 
@@ -53,13 +55,27 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
       setIsLoginLoading(true);
 
       try {
-        //lam_dev Thay apiFakeUsers bằng apiUsers
+        // lam_dev thay apiFakeUsers === apiUsers
         const findUser = apiFakeUsers.USER_001.find(
           (u) => u.email === emailLogin && u.password === passwordLogin
         );
+
+        // lam_dev thay apiFakeAdmin === apiAdmins
+        const findAdmin = apiFakeAdmin.ADMIN_001.find(
+          (admin) =>
+            admin.email === emailLogin && admin.password === passwordLogin
+        );
+
         if (findUser) {
           dispatch(loginSuccess(findUser));
           navigate("/", { state: { from: location } });
+        } else if (findAdmin) {
+          dispatch(loginSuccessAdmin(findAdmin));
+          navigate(`/admin/${findAdmin.adminName}`, {
+            state: { from: location },
+          });
+        } else {
+          console.error("Invalid login credentials");
         }
       } catch (error) {
         console.error("Login error:", error);
@@ -67,6 +83,7 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
         setIsLoginLoading(false);
       }
     };
+
     fetchUser();
   };
 

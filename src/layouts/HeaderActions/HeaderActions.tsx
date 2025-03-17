@@ -17,6 +17,7 @@ import routeURLs from "../../routes/routes";
 
 function HeaderActions() {
   const { t } = useLangSwitcher();
+
   const [infoShow, setInfoShow] = useState<boolean>(false);
   const dispatch = useDispatch();
   const currentUser = useSelector(

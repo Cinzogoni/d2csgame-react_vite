@@ -4,6 +4,7 @@ import axios from "axios";
 import {
   ProductCategories,
   User,
+  Admin,
   CharactersResponse,
   CharactersType,
 } from "../types/dataType";
@@ -46,10 +47,19 @@ const apiUsers = async (): Promise<User[]> => {
   return data;
 };
 
+//DATA IS FIXING
+const REST_API_ADMIN_URL = `http://localhost:8080/api/admin`;
+const apiAdmins = async (): Promise<Admin[]> => {
+  const response = await axios.get<Admin[]>(REST_API_ADMIN_URL);
+  const data = response.data;
+  return data;
+};
+
 export {
   apiHomePageResources,
   apiSearchResult,
   apiCharacters,
   apiProductCategories,
   apiUsers,
+  apiAdmins,
 };
