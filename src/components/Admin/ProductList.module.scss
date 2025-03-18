@@ -21,6 +21,13 @@
       padding: 10px;
       border: 1px solid #ddd;
       font-size: 1.8rem;
+
+      .func {
+        width: 20px;
+        height: 20px;
+        color: #333;
+        cursor: pointer;
+      }
     }
 
     th {
@@ -55,13 +62,77 @@
     }
   }
 
+  .create-product {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    left: 0;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .create-box {
+      width: 218px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333;
+      border-radius: $frame-corner-radius;
+      cursor: pointer;
+
+      .create {
+        width: 35px;
+        height: 35px;
+        color: $text-hover-color;
+      }
+
+      .text {
+        color: $text-hover-color;
+        font-size: 1.6rem;
+      }
+    }
+  }
+
   .pagination {
     position: absolute;
     width: 100%;
-    height: 60px;
+    height: 50px;
     bottom: 0;
     left: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
+
+    .pagination-box {
+      width: 218px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .page-numbers {
+        color: $text-hover-color;
+        font: {
+          size: 1.6rem;
+          weight: 600;
+        }
+        cursor: pointer;
+        margin: 0 6px;
+
+        .numbers {
+          margin: 0 6px;
+        }
+      }
+
+      .page-change {
+        width: 35px;
+        height: 35px;
+        color: $text-hover-color;
+        background-color: #333;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+    }
   }
 }
