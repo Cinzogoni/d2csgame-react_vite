@@ -9,12 +9,12 @@ import Select from "react-select";
 import GridSystem from "../GridSystem/GridSystem";
 import { Link } from "react-router-dom";
 
-import apiFakeCharacters from "../../api/fakeApi/apiFakeCharacters";
+// import apiFakeCharacters from "../../api/fakeApi/apiFakeCharacters";
 
-// import { useFetchApiProductResources } from "../../api/api.list.ts";
+import { useFetchApiProductResources } from "../../api/api.list.ts";
 
 function HeroList() {
-  // const { dataCharacters } = useFetchApiProductResources();
+  const { dataCharacters } = useFetchApiProductResources();
   const { t } = useLangSwitcher();
 
   const [selectedHero, setSelectedHero] = useState<any | null>(null);
@@ -24,7 +24,7 @@ function HeroList() {
 
   //lam_dev thay apiFakeCharacters === dataCharacters
   const heros = Array.from(
-    new Map(apiFakeCharacters.map((hero) => [hero.name, hero])).values()
+    new Map(dataCharacters.map((hero) => [hero.name, hero])).values()
   );
 
   const options = heros.map((hero) => ({
