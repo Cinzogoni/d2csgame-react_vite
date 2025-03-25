@@ -12,7 +12,7 @@ const adminSlice = createSlice({
   name: "adminStates",
   initialState,
   reducers: {
-    setFormType: (state, action: PayloadAction<"loginAdmin">) => {
+    setAdminFormType: (state, action: PayloadAction<"loginAdmin">) => {
       state.formType = action.payload;
     },
   },
@@ -20,5 +20,5 @@ const adminSlice = createSlice({
 
 const isAdminStates = adminSlice.reducer;
 
-export const { setFormType } = adminSlice.actions;
+export const { setAdminFormType } = adminSlice.actions;
 export default isAdminStates;
