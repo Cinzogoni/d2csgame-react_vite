@@ -39,6 +39,8 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
 
   const isLoginEmail = apiFakeUsers.USER_001.map((e) => e.email);
   const isLoginPassword = apiFakeUsers.USER_001.map((e) => e.password);
+  const isLoginAdminEmail = apiFakeAdmin.ADMIN_001.map((e) => e.email);
+  const isLoginAdminPassword = apiFakeAdmin.ADMIN_001.map((e) => e.password);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -62,8 +64,7 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
 
         // lam_dev thay apiFakeAdmin === apiAdmins
         const findAdmin = apiFakeAdmin.ADMIN_001.find(
-          (admin) =>
-            admin.email === emailLogin && admin.password === passwordLogin
+          (ad) => ad.email === emailLogin && ad.password === passwordLogin
         );
 
         if (findUser) {
@@ -137,7 +138,7 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
             </h2>
           </div>
 
-          {formType === "login" ? (
+          {formType === "login" || formType === "loginAdmin" ? (
             <div className={cx("frame")}>
               <form className={cx("form")} onSubmit={handleLoginSubmit}>
                 <div className={cx("input-form")}>
@@ -150,11 +151,12 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                     autoComplete="username"
                   />
                 </div>
-                {emailLogin && !isLoginEmail.includes(emailLogin) && (
-                  <p className={cx("login-wrong")}>
-                    {t("Primary.wrongLoginEmail")}
-                  </p>
-                )}
+                {(emailLogin && !isLoginEmail.includes(emailLogin)) ||
+                  (emailLogin && !isLoginAdminEmail.includes(emailLogin) && (
+                    <p className={cx("login-wrong")}>
+                      {t("Primary.wrongLoginEmail")}
+                    </p>
+                  ))}
 
                 <div className={cx("input-form")}>
                   <input
@@ -177,11 +179,13 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                     }}
                   />
                 </div>
-                {passwordLogin && !isLoginPassword.includes(passwordLogin) && (
-                  <p className={cx("login-wrong")}>
-                    {t("Primary.wrongLoginPassword")}
-                  </p>
-                )}
+                {(passwordLogin && !isLoginPassword.includes(passwordLogin)) ||
+                  (passwordLogin &&
+                    !isLoginAdminPassword.includes(passwordLogin) && (
+                      <p className={cx("login-wrong")}>
+                        {t("Primary.wrongLoginPassword")}
+                      </p>
+                    ))}
 
                 {isLoginLoading ? (
                   <div className={cx("loading")}>
