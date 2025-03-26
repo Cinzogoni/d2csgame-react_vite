@@ -355,6 +355,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -399,6 +403,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -443,6 +451,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -485,6 +497,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -529,6 +545,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -573,6 +593,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -648,49 +672,6 @@ const apiFakeHomePageResources = {
         },
       ],
       demo: "https://www.youtube.com/watch?v=TkwT4TGthYA",
-      quantity: 0,
-      saleOff: 0,
-    },
-    {
-      id: "",
-      name: "",
-      price: "",
-      description: "",
-      rate: false,
-      character: {
-        id: 2,
-        name: "",
-        avatar: "",
-        attribute: "",
-      },
-      productType: "SET",
-      classify: {
-        title: "Mix set",
-        class: "non",
-      },
-      images: [
-        {
-          id: 1,
-          filePath: "",
-          primary: true,
-        },
-        {
-          id: 2,
-          filePath: "",
-          primary: true,
-        },
-        {
-          id: 3,
-          filePath: "",
-          primary: true,
-        },
-        {
-          id: 4,
-          filePath: "",
-          primary: true,
-        },
-      ],
-      demo: "",
       quantity: 0,
       saleOff: 0,
     },
@@ -1813,7 +1794,7 @@ const apiFakeHomePageResources = {
         id: 1,
         name: "Pudge",
         avatar:
-          "ttps://farm5.staticflickr.com/4855/47022750361_5d86642e6e_m.jpg",
+          "https://farm5.staticflickr.com/4855/47022750361_5d86642e6e_m.jpg",
         attribute: "",
       },
       productType: "TAUNT",
@@ -1971,7 +1952,7 @@ const apiFakeHomePageResources = {
         id: 1,
         name: "Pudge",
         avatar:
-          "ttps://farm5.staticflickr.com/4855/47022750361_5d86642e6e_m.jpg",
+          "https://farm5.staticflickr.com/4855/47022750361_5d86642e6e_m.jpg",
         attribute: "",
       },
       productType: "TAUNT",
@@ -2025,7 +2006,8 @@ const apiFakeHomePageResources = {
       id: "weaHarvest",
       name: "Weather Harvest",
       price: "30.000",
-      description: "",
+      description:
+        "Weather Harvest có nghĩa là mùa thu hoạch trong nông nghiệp. Item tạo ra không khí thoáng đảng, mát mẻ và thanh mát cho môi trường trong Dota 2. Đặc trưng với các tia nắng vàng ấm áp và các cánh lá rơi thư thái tạo cảm giác nhẹ nhàng yên bình. Weather Harvest tạm cảm giác ấm áp, nhẹ nhàng không quá rực rỡ hay phức tạp khiến đây là hiệu ứng được yêu thích hàng đầu trong game.",
       rate: false,
       character: {
         id: 7,
@@ -2214,7 +2196,7 @@ const apiFakeHomePageResources = {
       id: "wibbley",
       name: "Wibbley",
       price: "88.000",
-      description: "",
+      description: "Courrier dota 2, đã unlock 4 style",
       rate: false,
       character: {
         id: 78,
@@ -2322,6 +2304,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "STEAM_WALLET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -2366,6 +2352,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "STEAM_POINT",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -2408,6 +2398,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "STEAM_POINT",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -2450,6 +2444,10 @@ const apiFakeHomePageResources = {
         attribute: "",
       },
       productType: "STEAM_POINT",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
