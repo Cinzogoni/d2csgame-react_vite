@@ -99,7 +99,8 @@
           .sub-menu {
             position: absolute;
             right: -250px;
-            top: 3px;
+            top: auto;
+            transform: translateY(-24px);
             background-color: $hover-background-color;
             border-radius: $element-corner-radius;
             width: 250px;
