@@ -43,8 +43,11 @@ const apiAdminsSlice = createSlice({
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.apiLoading = false;
-        state.currentAdmin =
-          action.payload.length > 0 ? action.payload[0] : null;
+        if (!state.currentAdmin) {
+          // Chỉ cập nhật nếu chưa có admin
+          state.currentAdmin =
+            action.payload.length > 0 ? action.payload[0] : null;
+        }
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.apiLoading = false;

@@ -36,6 +36,7 @@
             padding: 4px 10px;
             border: 1px solid #ddd;
             font-size: 1.8rem;
+            text-align: center;
 
             .func {
               width: 20px;
@@ -51,8 +52,15 @@
               font-weight: 400;
             }
           }
+          td:nth-child(2),
+          td:nth-child(3) {
+            max-width: 200px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+          }
 
-          td:nth-child(4) {
+          td:nth-child(5) {
             max-width: 180px;
             white-space: nowrap;
             position: relative;
@@ -87,13 +95,13 @@
             }
           }
 
-          td:nth-child(4):hover .popup {
+          td:nth-child(5):hover .popup {
             display: inline-block;
           }
 
-          td:nth-child(6),
-          td:nth-child(8),
-          td:nth-child(9) {
+          td:nth-child(7),
+          td:nth-child(9),
+          td:nth-child(10) {
             position: relative;
             cursor: pointer;
 
@@ -147,15 +155,15 @@
             }
           }
 
-          td:nth-child(6):hover .expand {
-            display: inline-block;
-          }
-
-          td:nth-child(8):hover .expand {
+          td:nth-child(7):hover .expand {
             display: inline-block;
           }
 
           td:nth-child(9):hover .expand {
+            display: inline-block;
+          }
+
+          td:nth-child(10):hover .expand {
             display: inline-block;
           }
 
@@ -254,6 +262,12 @@
 
         .numbers {
           margin: 0 6px;
+
+          &.active {
+            color: #333;
+            font-weight: bold;
+            text-shadow: 0 0 0.5px #232323;
+          }
         }
       }
 
@@ -264,6 +278,10 @@
         background-color: #333;
         border-radius: 999px;
         cursor: pointer;
+
+        &.disabled {
+          opacity: 0.8;
+        }
       }
     }
   }
