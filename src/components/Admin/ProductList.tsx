@@ -6,18 +6,20 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Fragment } from "react";
-
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 
+import ProductForm from "./ProductForm/ProductForm";
+
 import apiFakeHomePageResources from "../../api/fakeApi/apiFakeHomePageResources";
 
 function ProductList() {
   const productsPerPage = 30;
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [activeProductForm, setActiveProductForm] = useState<boolean>(false);
 
   //lam_dev thay apiFakeHomePageResources === api of all product
   const productList = Object.values(apiFakeHomePageResources)
@@ -35,6 +37,16 @@ function ProductList() {
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
+    }
+  };
+
+  const handleDeleteProduct = () => {
+    const isConfirmed = window.confirm(
+      "Bạn có chắc chắn muốn xóa sản phẩm này?"
+    );
+    if (isConfirmed) {
+      // Thêm logic xóa sản phẩm ở đây
+      alert("Sản phẩm đã bị xóa!");
     }
   };
 
@@ -177,10 +189,16 @@ function ProductList() {
                 <td>0</td>
                 <td>0</td>
                 <td>
-                  <EditIcon className={cx("func")} />
+                  <EditIcon
+                    className={cx("func")}
+                    onClick={() => setActiveProductForm(true)}
+                  />
                 </td>
                 <td>
-                  <DeleteIcon className={cx("func")} />
+                  <DeleteIcon
+                    className={cx("func")}
+                    onClick={handleDeleteProduct}
+                  />
                 </td>
               </tr>
             ))}
@@ -188,11 +206,20 @@ function ProductList() {
         </table>
       </div>
 
+      {/* Tạo sản phẩm  */}
       <div className={cx("create-product")}>
-        <div className={cx("create-box")}>
+        <div
+          className={cx("create-box")}
+          onClick={() => setActiveProductForm(true)}
+        >
           <AddCircleIcon className={cx("create")} />
           <h2 className={cx("text")}>Create Product</h2>
         </div>
+        {activeProductForm && (
+          <div className={cx("product-form")}>
+            <ProductForm hideActiveProduct={setActiveProductForm} />
+          </div>
+        )}
       </div>
 
       {/* Phân trang */}
